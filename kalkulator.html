@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Permutasi & Kombinasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .calculator-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 14px;
+      color: #555;
+      text-align: left;
+    }
+    select, input[type="number"], button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+      text-align: left;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: #007BFF;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Position above the tooltip icon */
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    <h1>Kalkulator Permutasi & Kombinasi</h1>
+    <label for="calcType">Pilih jenis perhitungan:</label>
+    <select id="calcType">
+      <option value="permutation">Permutasi</option>
+      <option value="combination">Kombinasi</option>
+    </select>
+    
+    <label for="n">
+      Masukkan nilai n <span class="tooltip">?
+        <span class="tooltiptext">n adalah jumlah total elemen yang tersedia.</span>
+      </span>
+    </label>
+    <input type="number" id="n" placeholder="Masukkan jumlah total elemen (n)" min="0">
+    
+    <label for="r">
+      Masukkan nilai r <span class="tooltip">?
+        <span class="tooltiptext">r adalah jumlah elemen yang dipilih dari n.</span>
+      </span>
+    </label>
+    <input type="number" id="r" placeholder="Masukkan jumlah elemen yang dipilih (r)" min="0">
+    
+    <button onclick="calculate()">Hitung</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function factorial(num) {
+      if (num < 0) return 0;
+      let fact = 1;
+      for (let i = 1; i <= num; i++) {
+        fact *= i;
+      }
+      return fact;
+    }
+
+    function calculate() {
+      const calcType = document.getElementById("calcType").value;
+      const n = parseInt(document.getElementById("n").value);
+      const r = parseInt(document.getElementById("r").value);
+      let result = 0;
+      let explanation = "";
+
+      if (isNaN(n) || isNaN(r) || n < 0 || r < 0 || r > n) {
+        document.getElementById("result").innerHTML = "Masukkan nilai n dan r yang valid!";
+        return;
+      }
+
+      if (calcType === "permutation") {
+        result = factorial(n) / factorial(n - r);
+        explanation = `Permutasi (P) dihitung dengan rumus:<br>
+          P(n, r) = n! / (n - r)!<br>
+          <br>
+          Substitusi nilai n = ${n} dan r = ${r}:<br>
+          P(${n}, ${r}) = ${n}! / (${n} - ${r})!<br>
+          P(${n}, ${r}) = ${factorial(n)} / ${factorial(n - r)} = ${result}`;
+      } else if (calcType === "combination") {
+        result = factorial(n) / (factorial(r) * factorial(n - r));
+        explanation = `Kombinasi (C) dihitung dengan rumus:<br>
+          C(n, r) = n! / (r! * (n - r)!)<br>
+          <br>
+          Substitusi nilai n = ${n} dan r = ${r}:<br>
+          C(${n}, ${r}) = ${n}! / (${r}! * (${n} - ${r})!)<br>
+          C(${n}, ${r}) = ${factorial(n)} / (${factorial(r)} * ${factorial(n - r)}) = ${result}`;
+      }
+
+      document.getElementById("result").innerHTML = `Hasil: ${result}<br><br>${explanation}`;
+    }
+  </script>
+</body>
+</html>
