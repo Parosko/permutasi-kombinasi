@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Permutasi & Kombinasi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator-container">
+    <h1>Kalkulator Permutasi & Kombinasi</h1>
+    <div id="calcTypeLabel">Jenis Perhitungan: <strong id="calcType">Permutasi</strong></div>
+    <div class="screen" id="screen">n = 0, r = 0</div>
+    <div class="btn-container">
+      <button onclick="appendDigit(1)">1</button>
+      <button onclick="appendDigit(2)">2</button>
+      <button onclick="appendDigit(3)">3</button>
+      <button class="operation" onclick="changeCalcType()">Ubah Jenis</button>
+
+      <button onclick="appendDigit(4)">4</button>
+      <button onclick="appendDigit(5)">5</button>
+      <button onclick="appendDigit(6)">6</button>
+      <button class="operation" onclick="setInput('n')">Set n</button>
+
+      <button onclick="appendDigit(7)">7</button>
+      <button onclick="appendDigit(8)">8</button>
+      <button onclick="appendDigit(9)">9</button>
+      <button class="operation" onclick="setInput('r')">Set r</button>
+
+      <button onclick="clearScreen()">C</button>
+      <button onclick="appendDigit(0)">0</button>
+      <button class="operation" onclick="calculate()">Hitung</button>
+      <button class="operation" onclick="backspace()">←</button>
+    </div>
+    <div class="btn-container">
+      <button class="operation" onclick="editInput('n')">Edit n</button>
+      <button class="operation" onclick="editInput('r')">Edit r</button>
+    </div>
+    <div class="result" id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
