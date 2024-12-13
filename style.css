@@ -1,3 +1,4 @@
+/* Base styles for the body and calculator */
 body {
   font-family: Arial, sans-serif;
   background-color: #121212;
@@ -17,7 +18,7 @@ body {
   padding: 20px;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Make sure the calculator is below the user guide */
 }
 
 h1 {
@@ -79,6 +80,7 @@ button.operation:hover {
   position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 15; /* Keep the guide button above everything */
 }
 
 button#guideButton {
@@ -108,13 +110,15 @@ button#guideButton:hover {
   right: -320px; /* Initially off-screen */
   transform: translateY(-50%);
   transition: right 0.3s ease;
+  z-index: 10; /* Ensure it appears in front of the calculator */
 }
 
 .user-guide.show {
-  right: 0; /* Slide in */
-  display: block; /* Make it visible */
+  right: 0; /* Slide in when active */
+  display: block;
 }
-/* Add styles for the close button */
+
+/* Close button styles inside the user guide */
 .close-btn {
   background: none;
   border: none;
@@ -128,4 +132,9 @@ button#guideButton:hover {
 
 .close-btn:hover {
   color: #f39c12;
+}
+
+/* Make sure the calculator container stays below the user guide */
+.calculator-container {
+  z-index: 1; /* Lower z-index to ensure the guide is above */
 }
