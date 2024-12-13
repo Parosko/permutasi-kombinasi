@@ -114,3 +114,18 @@ button#guideButton:hover {
   right: 0; /* Slide in */
   display: block; /* Make it visible */
 }
+/* Add styles for the close button */
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #f39c12;
+}
