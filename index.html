@@ -36,8 +36,34 @@
       <button class="operation" onclick="editInput('n')">Edit n</button>
       <button class="operation" onclick="editInput('r')">Edit r</button>
     </div>
-    <div class="result" id="result"></div>
+    <div class="result" id="result">
+      
+    </div>
   </div>
+
+  <!-- User Guide Section -->
+  <div id="userGuide" class="user-guide">
+    <h2>Panduan Penggunaan Kalkulator</h2>
+    <p>Berikut adalah penjelasan untuk tombol-tombol yang ada pada kalkulator ini:</p>
+    <ul>
+      <li><strong>Tombol Angka (0-9):</strong> Digunakan untuk memasukkan angka untuk n dan r.</li>
+      <li><strong>Ubah Jenis:</strong> Mengubah jenis perhitungan antara Permutasi (P) dan Kombinasi (C).</li>
+      <li><strong>Set n:</strong> Menetapkan nilai n (jumlah total elemen).</li>
+      <li><strong>Set r:</strong> Menetapkan nilai r (jumlah elemen yang dipilih).</li>
+      <li><strong>Hitung:</strong> Menghitung hasil berdasarkan nilai n dan r, sesuai dengan jenis perhitungan yang dipilih.</li>
+      <li><strong>Edit n:</strong> Mengedit nilai n yang sudah dimasukkan.</li>
+      <li><strong>Edit r:</strong> Mengedit nilai r yang sudah dimasukkan.</li>
+      <li><strong>C:</strong> Membersihkan layar dan mengatur ulang nilai n dan r.</li>
+      <li><strong>←:</strong> Menghapus digit terakhir yang dimasukkan.</li>
+    </ul>
+    <p>Anda dapat mengubah antara perhitungan Permutasi dan Kombinasi dengan menekan tombol "Ubah Jenis".</p>
+  </div>
+
+  <!-- User Guide Button, placed at the top right corner -->
+  <div class="guide-button-container">
+    <button id="guideButton" onclick="toggleGuide()">Panduan Penggunaan</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
